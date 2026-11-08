@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayo Belajar Membaca dan Mengenal Benda di Sekolah!</title>
+<link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eaf6fb;--card:#fff;--ink:#25465a;--acc:#5cc4c4;--acc2:#ffe9a8;--blue:#6aa9e9;--ok:#d9f3e4;--hi:#ffd86b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17303d;--card:#23455a;--ink:#f1f8fb;--acc2:#6b5d2a;--ok:#2c5a49;--hi:#b58f1f}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Andika,Verdana,sans-serif;font-size:clamp(18px,2.2vw,24px);line-height:1.5}
+header{position:sticky;top:0;z-index:20;background:var(--card);display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:8px 12px;border-bottom:4px solid var(--acc)}
+button,select{font:inherit;color:var(--ink);background:var(--acc2);border:3px solid var(--acc);border-radius:18px;padding:10px 18px;min-height:56px;cursor:pointer}
+button:hover{filter:brightness(.97)}button:focus-visible,select:focus-visible{outline:4px solid var(--blue);outline-offset:2px}
+button.big{background:var(--acc);color:#073b3b;font-weight:700;font-size:1.2em;padding:14px 32px}
+button.on{background:var(--hi)}
+header .t{font-weight:700;margin-right:auto}header input{width:90px;height:30px}
+section{max-width:1000px;margin:0 auto;padding:40px 16px;min-height:60vh}
+h2{font-size:1.6em;margin:0 0 6px}p.s{margin:0 0 18px;opacity:.85}
+.card{background:var(--card);border-radius:28px;padding:20px;box-shadow:0 6px 0 rgba(37,70,90,.12);text-align:center;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.grid button{display:flex;flex-direction:column;align-items:center;background:var(--card);gap:4px;padding:10px}
+.grid svg{width:72px;height:72px}
+.big svg,svg.xl{width:clamp(130px,26vw,220px);height:clamp(130px,26vw,220px)}
+.word{font-size:clamp(2.2em,9vw,4.5em);font-weight:700;letter-spacing:.06em}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:12px 0}
+.tile{min-width:72px;font-size:2em;font-weight:700;background:var(--card);border:4px solid var(--blue);border-radius:18px;padding:6px 14px}
+.tile.hi{background:var(--hi)}.tile.sy{border-color:var(--acc)}
+.merge{display:inline-flex;gap:50px;transition:gap 1.4s ease}.merge.go{gap:0}
+.merge .tile{border-radius:0}.merge.go .tile:first-child{border-radius:18px 0 0 18px}.merge.go .tile:last-child{border-radius:0 18px 18px 0}
+.msg{min-height:2em;font-weight:700;font-size:1.2em}
+.emo{font-size:clamp(90px,20vw,150px);line-height:1.1}
+.bar{height:10px;background:var(--acc);border-radius:9px}
+.d3{display:inline-block;perspective:700px}.d3i{position:relative;width:clamp(130px,26vw,220px);height:clamp(130px,26vw,220px);transform-style:preserve-3d;animation:sw 9s ease-in-out infinite}.d3i svg{position:absolute;inset:0;width:100%;height:100%}@keyframes sw{0%,100%{transform:rotateX(8deg) rotateY(-30deg)}50%{transform:rotateX(8deg) rotateY(30deg)}}.obj .d3i{width:clamp(70px,16vw,130px);height:clamp(70px,16vw,130px)}.flat .d3i{animation:none;transform:none}.flat .d3i svg:not(:last-child){display:none}@media(prefers-reduced-motion:reduce){.d3i{animation:none;transform:rotateY(-15deg)}}#o8 button svg,#g7 svg{width:clamp(70px,16vw,110px);height:clamp(70px,16vw,110px)}
+/* 3D hero */
+.hero{perspective:1100px;height:clamp(240px,42vw,380px);margin:10px auto}
+.scene{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(calc(14deg - var(--t,0)*10deg)) rotateY(calc(-14deg + var(--t,0)*10deg));transition:transform .8s ease-out}
+.wall{position:absolute;inset:0 6% 30% 6%;background:#bfe3f5;border-radius:16px;transform:translateZ(-90px)}
+.floor{position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(#f6e3b4,#ffe9a8);transform-origin:bottom;transform:rotateX(62deg) translateZ(-60px);border-radius:16px}
+.obj{position:absolute;width:clamp(70px,16vw,130px);animation:fl 7s ease-in-out infinite;cursor:pointer;background:none;border:0;padding:0;min-height:0}
+.obj svg{width:100%}@keyframes fl{50%{translate:0 -8px}}
+.flat .scene,.flat .obj{transform:none!important;animation:none}.flat .wall,.flat .floor{transform:none}
+@media(prefers-reduced-motion:reduce){.obj{animation:none}.scene{transition:none}html{scroll-behavior:auto}}
+body{overflow-x:hidden;background:linear-gradient(#eaf6fb,#f7fbf3)}@media(prefers-color-scheme:dark){:root:not([data-theme=light]) body{background:#17303d}}
+section{position:relative;isolation:isolate}section:nth-of-type(even)::before{content:"";position:absolute;inset:0 -100vw;z-index:-1;background:rgba(92,196,196,.13)}
+header{box-shadow:0 4px 14px rgba(37,70,90,.15)}header button,header select{min-height:44px;padding:6px 12px;font-size:.72em;border-radius:14px}header .t{font-size:1.05em}
+h2{display:inline-block;background:var(--acc2);padding:6px 22px;border-radius:999px;border:3px solid var(--acc)}
+.card{border:4px solid var(--acc2);border-radius:32px;padding:clamp(16px,3vw,32px)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}.grid button{border-radius:26px;border-color:var(--acc);transition:transform .25s}.grid button:hover{transform:translateY(-4px)}.grid svg{width:84px;height:84px}
+.tile{box-shadow:0 5px 0 var(--blue)}.tile.sy{box-shadow:0 5px 0 var(--acc)}
+.wall{background:linear-gradient(#d4edf8,#bfe3f5);box-shadow:inset 0 -12px 0 #a9d6ea}.floor{background:repeating-linear-gradient(90deg,#f6e3b4 0 60px,#ffe9a8 60px 120px)}
+#buka h1{background:var(--card);border-radius:28px;padding:14px 18px;border:4px solid var(--acc)}
+details.card{text-align:left}summary{cursor:pointer;font-weight:700;min-height:44px}
+.i{font-family:Georgia,"Times New Roman",serif}.word{letter-spacing:.12em}.tile{letter-spacing:.04em}
+.merge{flex-wrap:nowrap;gap:clamp(14px,5vw,50px)}.merge .tile{min-width:clamp(44px,12vw,72px);padding:6px 4px;text-align:center}.merge.go{gap:0}.merge.go .tile{border-left-width:0;background:var(--hi)}.merge.go .tile:first-child{border-left-width:4px}
+.merge{transition:gap .3s ease}
+</style></head><body>
+<header>
+<span class="t">Ayo Belajar Membaca</span>
+<button onclick="fs()" id="bfs">Layar Penuh</button>
+<button onclick="flat()" id="bfl">Mode 2D</button>
+<button onclick="setSp(.5)" id="sp1" class="on">Pelan</button><button onclick="setSp(.8)" id="sp2">Normal</button>
+<label>Volume <input type="range" min="0.2" max="1" step="0.1" value="0.8" oninput="S.vol=+this.value" aria-label="Atur Volume"></label><select id="vo" onchange="voice=vs[this.value]" aria-label="Pilih suara perempuan"></select>
+<button onclick="setMode(true)" id="m1" class="on">Belajar dengan bantuan</button><button onclick="setMode(false)" id="m2">Coba sendiri</button>
+</header>
+
+<section id="buka" style="text-align:center">
+<h1 style="font-size:clamp(1.6em,5vw,2.6em);margin:0">Ayo Belajar Membaca dan Mengenal Benda di Sekolah!</h1>
+<div class="hero"><div class="scene" id="scene"><div class="wall"></div><div class="floor"></div>
+<button class="obj" style="left:12%;top:10%;transform:translateZ(-60px)" onclick="speak('Ini papan tulis')" aria-label="papan tulis" data-i="papan"></button>
+<button class="obj" style="left:40%;top:44%;transform:translateZ(30px)" onclick="speak('Ini meja')" data-i="meja" aria-label="meja"></button>
+<button class="obj" style="left:68%;top:48%;transform:translateZ(70px)" onclick="speak('Ini tas')" data-i="tas" aria-label="tas"></button>
+<button class="obj" style="left:62%;top:6%;transform:translateZ(-50px)" onclick="speak('Ini jam')" data-i="jam" aria-label="jam"></button>
+<button class="obj" style="left:22%;top:56%;transform:translateZ(90px)" onclick="speak('Ini buku')" data-i="buku" aria-label="buku"></button></div></div>
+<div class="card"><p style="margin:0">Halo, teman-teman! Hari ini kita akan belajar mengenal benda-benda di sekolah. Kita akan melihat benda, mengenal huruf, belajar membaca suku kata, lalu membaca nama benda. Ayo belajar bersama!</p>
+<p><b>Tekan tombol mulai untuk belajar.</b></p>
+<div class="row"><button class="big" onclick="go('benda')">Mulai Belajar</button><button onclick="speak(INTRO)">Dengarkan lagi</button></div></div>
+<details class="card"><summary>Pengaturan suara perempuan</summary>
+<p>Suara memakai pembaca suara perangkat. Jika terdengar seperti laki-laki, pilih suara lain di menu atas, atau naikkan nada di sini.</p>
+<label>Nada suara <input type="range" min="1" max="1.8" step="0.05" value="1.3" oninput="S.pitch=+this.value" aria-label="Nada suara"></label>
+<p>Punya rekaman suara perempuan (misalnya guru)? Beri nama file sesuai bunyinya (<b>buku.mp3</b>, <b>bu.mp3</b>, <b>b.mp3</b>, <b>pensil.mp3</b>), lalu pilih semuanya:</p>
+<input type="file" accept="audio/*" multiple onchange="loadRec(this.files)" aria-label="Muat rekaman"> <div class="msg" id="recmsg"></div></details>
+</section>
+
+<section id="benda"><h2>Tahap 1 – Mengenal benda di sekolah</h2><p class="s">Tekan satu benda.</p>
+<div class="grid" id="g1"></div><div id="o1"></div></section>
+
+<section id="huruf"><h2>Tahap 2 – Huruf A sampai Z</h2><p class="s">Pilih huruf, atau tekan Lanjut.</p>
+<div class="row" id="g2"></div><div id="o2"></div></section>
+
+<section id="baca"><h2>Tahap 3 – Belajar membaca benda</h2><p class="s">Pilih benda, lalu ikuti langkahnya.</p>
+<div class="grid" id="g3"></div><div id="o3"></div></section>
+
+<section id="suku"><h2>Tahap 4–6 – Huruf, suku kata, dan kata</h2>
+<div class="row"><select id="sel" onchange="work()" aria-label="Pilih benda"></select>
+<button id="w1" onclick="W.t=1;work()">1. Gabung huruf</button><button id="w2" onclick="W.t=2;work()">2. Baca suku kata</button><button id="w3" onclick="W.t=3;work()">3. Gabung suku kata</button></div>
+<div class="card" id="o4"></div></section>
+
+<section id="kata"><h2>Tahap 7 – Membaca kata dengan gambar</h2><p class="s">Tekan kata untuk mendengarkan.</p><div class="grid" id="g7"></div></section>
+
+<section id="main"><h2>Tahap 8 – Permainan</h2>
+<div class="row" id="gm"></div><div class="card" id="o8"></div></section>
+
+<section id="nyata"><h2>Tahap 9 – Cari benda nyata</h2><div class="card" id="o9"></div></section>
+
+<script>
+const INTRO="Halo, teman-teman! Hari ini kita akan belajar mengenal benda-benda di sekolah. Kita akan melihat benda, mengenal huruf, belajar membaca suku kata, lalu membaca nama benda. Ayo belajar bersama!";
+const AUDIO_FILES={}; // Ganti dengan rekaman: {"buku":"audio/buku.mp3"}
+const S={rate:.5,vol:.8,help:true},tok={n:0};
+const P='stroke-width="3" stroke-linecap="round"';
+const IC={
+buku:'<rect x="18" y="20" width="64" height="60" rx="5" fill="#4f8fd8"/><rect x="26" y="24" width="52" height="52" fill="#fff"/><path d="M34 40h36M34 50h36M34 60h26" stroke="#9bb" '+P+'/>',
+pensil:'<g transform="rotate(45 50 50)"><rect x="40" y="10" width="20" height="62" fill="#f6c945"/><path d="M40 72h20l-10 18z" fill="#f3d9b1"/><path d="M46 82h8l-4 8z" fill="#444"/><rect x="40" y="10" width="20" height="10" fill="#f08a8a"/></g>',
+penghapus:'<rect x="14" y="36" width="72" height="32" rx="6" fill="#f4a6b8"/><rect x="14" y="36" width="26" height="32" rx="6" fill="#6ab0e9"/>',
+penggaris:'<rect x="8" y="38" width="84" height="24" rx="3" fill="#f6d365"/><path d="M20 38v10M32 38v7M44 38v10M56 38v7M68 38v10M80 38v7" stroke="#555" stroke-width="2"/>',
+tas:'<path d="M38 30v-6a12 12 0 0124 0v6" fill="none" stroke="#3a8" stroke-width="5"/><rect x="24" y="30" width="52" height="56" rx="12" fill="#5cc4c4"/><rect x="32" y="56" width="36" height="20" rx="5" fill="#3aa0a0"/>',
+meja:'<rect x="12" y="32" width="76" height="10" rx="3" fill="#d9a066"/><rect x="20" y="42" width="7" height="40" fill="#b9814a"/><rect x="73" y="42" width="7" height="40" fill="#b9814a"/>',
+kursi:'<rect x="30" y="12" width="36" height="34" rx="4" fill="#e0a45e"/><rect x="28" y="46" width="44" height="10" rx="3" fill="#c98a46"/><rect x="30" y="56" width="6" height="30" fill="#a96f35"/><rect x="64" y="56" width="6" height="30" fill="#a96f35"/>',
+papan:'<rect x="8" y="18" width="84" height="54" rx="4" fill="#2f6f5e" stroke="#c98a46" stroke-width="5"/><path d="M20 36h40M20 50h28" stroke="#fff" '+P+'/><rect x="30" y="72" width="40" height="5" fill="#c98a46"/>',
+spidol:'<g transform="rotate(-35 50 50)"><rect x="14" y="40" width="56" height="20" rx="4" fill="#4f8fd8"/><rect x="24" y="40" width="14" height="20" fill="#fff"/><rect x="66" y="44" width="14" height="12" fill="#333"/><rect x="80" y="47" width="8" height="6" fill="#4f8fd8"/></g>',
+kapur:'<g transform="rotate(-30 50 50)"><rect x="20" y="42" width="60" height="16" rx="3" fill="#f8f8f4" stroke="#7aa" stroke-width="3"/></g><path d="M22 84h14M44 88h10" stroke="#ccd" '+P+'/>',
+botol:'<rect x="40" y="10" width="20" height="10" rx="2" fill="#f08a8a"/><rect x="44" y="20" width="12" height="8" fill="#bfe3f5"/><rect x="32" y="28" width="36" height="60" rx="10" fill="#9fd8f0"/><rect x="32" y="50" width="36" height="14" fill="#fff" opacity=".7"/>',
+kotak:'<path d="M26 40l4-18 6 18zM44 40l4-20 6 20z" fill="#f6c945"/><rect x="10" y="38" width="80" height="36" rx="8" fill="#f6a56f"/><path d="M10 54h80" stroke="#d8844c" '+P+'/><circle cx="50" cy="54" r="5" fill="#fff"/>',
+sepatu:'<path d="M12 62c0-16 8-24 20-26l8 8 14 2c18 2 30 8 34 20v8H12z" fill="#4f8fd8"/><rect x="12" y="70" width="82" height="10" rx="3" fill="#fff"/><path d="M32 46l5 5M40 50l5 5" stroke="#fff" '+P+'/>',
+jam:'<circle cx="50" cy="50" r="38" fill="#fff" stroke="#f6c945" stroke-width="8"/><path d="M50 18v6M50 76v6M18 50h6M76 50h6M50 50V30M50 50l15 8" stroke="#333" '+P+'/>',
+pintu:'<rect x="28" y="8" width="44" height="84" rx="3" fill="#c98a46"/><rect x="36" y="18" width="28" height="28" fill="#b9773a"/><rect x="36" y="54" width="28" height="28" fill="#b9773a"/><circle cx="64" cy="52" r="3" fill="#f6d365"/>',
+jendela:'<rect x="14" y="14" width="72" height="72" rx="3" fill="#bfe3f5" stroke="#8bbcd9" stroke-width="6"/><path d="M50 14v72M14 50h72" stroke="#8bbcd9" stroke-width="5"/>',
+lemari:'<rect x="16" y="8" width="68" height="84" rx="3" fill="#d9a066"/><rect x="22" y="14" width="22" height="30" fill="#e8bd88"/><rect x="56" y="14" width="22" height="30" fill="#e8bd88"/><path d="M50 8v84" stroke="#a96f35" '+P+'/><circle cx="44" cy="56" r="3" fill="#fff"/><circle cx="56" cy="56" r="3" fill="#fff"/>',
+sampah:'<path d="M24 28h52l-5 60H29z" fill="#5cc4c4"/><rect x="20" y="20" width="60" height="8" rx="3" fill="#3aa0a0"/><rect x="42" y="13" width="16" height="7" rx="2" fill="#3aa0a0"/><path d="M40 40v38M50 40v38M60 40v38" stroke="#fff" '+P+'/>',
+sapu:'<rect x="47" y="6" width="6" height="58" fill="#c98a46"/><path d="M30 64h40l8 28H22z" fill="#f6c945"/><path d="M36 70l-4 20M46 70v20M56 70v20M66 70l4 20" stroke="#d9a43c" stroke-width="2"/>',
+bunga:'<path d="M50 40v50" stroke="#4caf7a" stroke-width="5"/><ellipse cx="62" cy="74" rx="11" ry="5" fill="#4caf7a"/><g fill="#f4a6b8"><circle cx="50" cy="20" r="11"/><circle cx="68" cy="33" r="11"/><circle cx="62" cy="52" r="11"/><circle cx="38" cy="52" r="11"/><circle cx="32" cy="33" r="11"/></g><circle cx="50" cy="38" r="9" fill="#f6c945"/>'};
+const I=[["buku","BU-KU"],["pensil","PEN-SIL"],["penghapus","PENG-HA-PUS"],["penggaris","PENG-GA-RIS"],["tas","TAS"],["meja","ME-JA"],["kursi","KUR-SI"],["papan","PA-PAN TU-LIS"],["spidol","SPI-DOL"],["kapur","KA-PUR"],["botol","BO-TOL"],["kotak","KO-TAK PEN-SIL"],["sepatu","SE-PA-TU"],["jam","JAM"],["pintu","PIN-TU"],["jendela","JEN-DE-LA"],["lemari","LE-MA-RI"],["sampah","TEM-PAT SAM-PAH"],["sapu","SA-PU"],["bunga","BU-NGA"]];
+// "tempat sampah" = sampah; label tambahan untuk kartu
+const NM=s=>s.replace(/-/g,""),SY=s=>s.split(/[ -]/),LT=s=>s.replace(/[- ]/g,"").split("");
+const LBL={sampah:"TEMPAT SAMPAH"};
+const nm=i=>LBL[I[i][0]]||NM(I[i][1]);
+const svg1=(k,c="",s="")=>`<svg viewBox="0 0 100 100" class="${c}" style="${s}" role="img" aria-label="${k}">${IC[k]}</svg>`;
+const ico=(k,c="")=>c=="xl"||c=="d3"?`<div class="d3"><div class="d3i">${[0,1,2,3,4,5,6].map(n=>svg1(k,"",`transform:translateZ(${(n-3)*7}px);filter:brightness(${n==6?1:.7+n*.04})`)).join("")}</div></div>`:svg1(k,c);
+const $=id=>document.getElementById(id),sh=a=>[...a].sort(()=>Math.random()-.5),cap=s=>s[0]+s.slice(1).toLowerCase();
+/* AUDIO */
+let voice=null,vs=[];const FEM=/damayanti|gadis|female|perempuan|wanita|google/i;function pick(){vs=speechSynthesis.getVoices().filter(x=>/^id/i.test(x.lang)&&!/andika|ardi|\bmale\b|pria/i.test(x.name));if(!vs.length)vs=speechSynthesis.getVoices().filter(x=>/^id/i.test(x.lang));const f=vs.find(x=>/gadis/i.test(x.name)&&/natural|online/i.test(x.name))||vs.find(x=>/natural|online/i.test(x.name))||vs.find(x=>/damayanti|gadis|female|perempuan|wanita/i.test(x.name))||vs.find(x=>/google/i.test(x.name))||vs[0]||null;if(!voice||!vs.includes(voice))voice=f;const e=$("vo");if(e)e.innerHTML=vs.length?vs.map((x,n)=>`<option value="${n}"${x===voice?" selected":""}>${x.name}</option>`).join(""):"<option>Tidak ada suara perempuan Indonesia di perangkat ini</option>"}
+if("speechSynthesis"in window){pick();speechSynthesis.onvoiceschanged=pick}
+const LN={A:"a",B:"be",C:"ce",D:"de",E:"e",F:"ef",G:"ge",H:"ha",I:"i",J:"je",K:"ka",L:"el",M:"em",N:"en",O:"o",P:"pe",Q:"ki",R:"er",S:"es",T:"te",U:"u",V:"fe",W:"we",X:"eks",Y:"ye",Z:"zet"};
+const LNAME=t=>t.replace(/(^|\s)([A-Za-z])(?=\s|$|[.,!?])/g,(m,a,c)=>a+LN[c.toUpperCase()]);
+function loadRec(f){[...f].forEach(x=>{AUDIO_FILES[x.name.replace(/\.[^.]+$/,"").toLowerCase().replace(/_/g," ")]=URL.createObjectURL(x)});$("recmsg").textContent=f.length+" rekaman dimuat."}
+function say(t,on){return new Promise(r=>{const key=t.toLowerCase();if(AUDIO_FILES[key]){const a=new Audio(AUDIO_FILES[key]);a.volume=S.vol;a.onplay=on;a.onended=r;a.play().catch(r);return}
+if(!("speechSynthesis"in window))return r();const u=new SpeechSynthesisUtterance(/^[A-Za-z]{1,3}$/.test(t)?LNAME(t)+".":LNAME(t));if(!vs.length)pick();u.lang=voice?voice.lang:"id-ID";if(voice)u.voice=voice;u.rate=t.length==1?S.rate*.85:S.rate;try{speechSynthesis.resume()}catch(e){}u.pitch=S.pitch||(FEM.test(voice?voice.name:"")?1.05:1.3);u.volume=S.vol;u.onstart=on;u.onend=r;u.onerror=r;speechSynthesis.speak(u)})}
+const wait=ms=>new Promise(r=>setTimeout(r,ms*(S.rate<.6?1.3:.8)));
+async function seq(parts,cb){const id=++tok.n;try{speechSynthesis.cancel()}catch(e){}await new Promise(r=>setTimeout(r,120));if(id!==tok.n)return;for(let k=0;k<parts.length;k++){if(id!==tok.n)return;const[t,p,tag]=parts[k];let fired=false;const fire=()=>{if(!fired){fired=true;if(cb)cb(tag,true)}};const tm=setTimeout(fire,700);await say(t,()=>{clearTimeout(tm);fire()});clearTimeout(tm);fire();if(id!==tok.n)return;await wait(p||400);if(cb)cb(tag,false)}}
+const speak=t=>seq([[t,0]]);
+function setSp(r){S.rate=r;$("sp1").classList.toggle("on",r<.6);$("sp2").classList.toggle("on",r>.6)}
+function setMode(h){S.help=h;$("m1").classList.toggle("on",h);$("m2").classList.toggle("on",!h)}
+const auto=p=>{if(S.help)seq(p)};
+function go(id){$(id).scrollIntoView({behavior:"smooth"})}
+function fs(){const d=document;if(d.fullscreenElement){d.exitFullscreen()}else{(d.documentElement.requestFullscreen||d.documentElement.webkitRequestFullscreen||(()=>alert("Layar penuh tidak tersedia di perangkat ini.")))?.call(d.documentElement)}}
+d=document;d.addEventListener("fullscreenchange",()=>$("bfs").textContent=d.fullscreenElement?"Keluar Layar Penuh":"Layar Penuh");
+function flat(){const f=document.body.classList.toggle("flat");$("bfl").textContent=f?"Mode 3D":"Mode 2D"}
+addEventListener("scroll",()=>$("scene").style.setProperty("--t",Math.min(scrollY/700,1)),{passive:true});
+document.querySelectorAll(".obj").forEach(o=>o.innerHTML=ico(o.dataset.i,"d3"));
+/* grids */
+const gridBtns=(fn)=>I.map((x,i)=>`<button onclick="${fn}(${i})">${ico(x[0])}<span>${nm(i)}</span></button>`).join("");
+$("g1").innerHTML=gridBtns("show1");$("g3").innerHTML=gridBtns("learn");
+function show1(i){$("o1").innerHTML=`<div class="card"><div class="big">${ico(I[i][0],"xl")}</div><div class="word">${nm(i)}</div>
+<div class="row"><button class="big" onclick="speak('Ini ${nm(i).toLowerCase()}')">🔊 Dengarkan</button><button onclick="speak('Ini ${nm(i).toLowerCase()}')">Dengarkan lagi</button><button onclick="learn(${i});go('baca')">Belajar huruf pada benda ini</button></div></div>`;auto([["Ini "+nm(i).toLowerCase(),0]]);$("o1").scrollIntoView({behavior:"smooth",block:"nearest"})}
+/* huruf */
+const AZ=[["A","Apel","🍎"],["B","Buku","buku"],["C","Cicak","🦎"],["D","Domba","🐑"],["E","Ember","🪣"],["F","Foto","📷"],["G","Gajah","🐘"],["H","Harimau","🐅"],["I","Ikan","🐟"],["J","Jam","jam"],["K","Kursi","kursi"],["L","Lemari","lemari"],["M","Meja","meja"],["N","Nanas","🍍"],["O","Ombak","🌊"],["P","Pensil","pensil"],["Q","Quran",""],["R","Rumah","🏠"],["S","Sapu","sapu"],["T","Tas","tas"],["U","Ular","🐍"],["V","Vas","🏺"],["W","Wortel","🥕"],["X","Xilofon",""],["Y","Yoyo","🪀"],["Z","Zebra","🦓"]];
+let LI=0;$("g2").innerHTML=AZ.map((a,i)=>`<button class="tile" onclick="hur(${i})">${a[0]}</button>`).join("");
+function hur(i){LI=(i+26)%26;const[L,w,k]=AZ[LI];const im=IC[k]?ico(k,"xl"):k?`<div class="emo">${k}</div>`:"";
+$("o2").innerHTML=`<div class="card"><div class="word" style="font-size:clamp(4em,18vw,8em)">${L} ${L=="L"?'<span class="i">l</span>':L.toLowerCase()}</div>${im}<div class="word" style="font-size:2em">${w.toUpperCase()}</div>
+<div class="row"><button onclick="hur(LI-1)">Kembali</button><button class="big" onclick="hs()">Dengarkan lagi</button><button onclick="hur(LI+1)">Lanjut</button></div></div>`;hs()}
+function hs(){const[L,w]=AZ[LI];seq([["Ini huruf "+L,500],[L,900],[L+" untuk "+w,0]])}
+/* belajar per benda */
+let C={i:0,s:0};const ST=6;
+function learn(i){C.i=i;C.s=0;step()}
+function step(){const[k,s]=I[C.i],w=nm(C.i),ls=LT(s),sy=SY(s);let h="",a=[];
+if(C.s==0){h=`<div class="big">${ico(k,"xl")}</div>`;a=[["Ini "+w.toLowerCase(),0]]}
+if(C.s==1){h=`<div class="big">${ico(k,"xl")}</div><div class="word">${w}</div>`;a=[["Ini "+w.toLowerCase(),0]]}
+if(C.s==2){h=`<div class="word">${w}</div><p>Tekan setiap huruf.</p><div class="row">${ls.map((l,j)=>`<button class="tile" id="L${j}" onclick="speak('${l}')">${l}</button>`).join("")}</div>`;a=ls.map((l,j)=>[l,500,j]);}
+if(C.s==3){h=`<p>Gabungan huruf menjadi suku kata</p><div class="row">${sy.map((t,j)=>`<button class="tile sy" id="L${j}" onclick="speak('${t.toLowerCase()}')">${t}</button>`).join("")}</div>`;a=sy.map((t,j)=>[t.toLowerCase(),600,j])}
+if(C.s==4){h=`<div class="big">${ico(k,"xl")}</div><div class="row">${sy.map(t=>`<span class="tile sy">${t}</span>`).join("")}</div><div class="word">${w}</div>`;a=[...sy.map(t=>[t.toLowerCase(),500]),[w.toLowerCase(),0]]}
+if(C.s==5){h=`<div class="big">${ico(k,"xl")}</div><div class="word">${w}</div><p>Coba baca sendiri, lalu tekan tombol.</p><div class="row"><button class="big" onclick="speak('${w.toLowerCase()}')">Dengarkan jawabannya</button><button onclick="$('fb').textContent='Hebat! Kamu bisa membaca ${w}!';speak('Hebat! Kamu bisa membaca ${w.toLowerCase()}')">Aku sudah bisa!</button></div><div class="msg" id="fb"></div>`}
+const T=["Lihat gambarnya","Nama benda","Huruf satu per satu","Suku kata","Kata utuh","Coba baca sendiri"];
+$("o3").innerHTML=`<div class="card"><div class="bar" style="width:${(C.s+1)/ST*100}%"></div><h3>Langkah ${C.s+1} dari ${ST}: ${T[C.s]}</h3>${h}
+<div class="row"><button ${C.s?"":"disabled"} onclick="C.s--;step()">Kembali</button><button onclick="step2()">Dengarkan lagi</button><button class="big" ${C.s<ST-1?"":"disabled"} onclick="C.s++;step()">Lanjut</button></div></div>`;
+window._a=a;if(C.s<5)auto2(a);$("o3").scrollIntoView({behavior:"smooth",block:"nearest"})}
+function hl(t,on){const e=$("L"+t);if(e)e.classList.toggle("hi",on)}
+function auto2(a){if(S.help)seq(a,hl)}function step2(){if(window._a)seq(window._a,hl)}
+/* workshop */
+const W={t:1};$("sel").innerHTML=I.map((x,i)=>`<option value="${i}">${nm(i)}</option>`).join("");
+function work(){const i=+$("sel").value,[k,s]=I[i],sy=SY(s),w=nm(i);[1,2,3].forEach(n=>$("w"+n).classList.toggle("on",W.t==n));let h="";
+if(W.t==1){h=`<p>Huruf bergerak dan bergabung.</p>`+sy.map((t,j)=>`<div class="row"><div class="merge" id="m${j}">${t.split("").map((l,k)=>`<span class="tile" id="t${j}_${k}">${l}</span>`).join("")}</div></div>`).join("")+`<div class="row"><button class="big" onclick="mer(${i})">Putar</button><button onclick="mer(${i})">Ulangi</button></div>`}
+if(W.t==2){h=`<div class="row">${sy.map((t,j)=>`<button class="tile sy" id="L${j}" onclick="speak('${t.toLowerCase()}')">${t}</button>`).join("")}</div><div class="row"><button class="big" onclick="seq(${JSON.stringify(sy.map((t,j)=>[t.toLowerCase(),700,j]))},hl)">Baca bersama</button></div>`}
+if(W.t==3){W.slot=[];W.tray=sh(sy.map((t,j)=>[t,j]));h=`<div class="big">${ico(k,"xl")}</div><div class="row" id="sl"></div><p>Tekan suku kata sesuai urutan.</p><div class="row" id="tr"></div><div class="row"><button onclick="work()">Ulangi</button></div><div class="msg" id="fb"></div>`}
+$("o4").innerHTML=h;if(W.t==3)tray(i);}
+function mer(i){const sy=SY(I[i][1]);sy.forEach((t,j)=>$("m"+j).classList.remove("go"));seq(sy.flatMap((t,j)=>[...t.split("").map((l,k)=>[l,200,j+"_"+k+"l"]),[t.toLowerCase(),450,j+"b"]]).concat([[nm(i).toLowerCase(),0,"z"]]),(g,on)=>{g=String(g);if(g.endsWith("l")){const e=$("t"+g.slice(0,-1));if(e)e.classList.toggle("hi",on);return}if(!on)return;if(g=="z")document.querySelectorAll(".merge").forEach(e=>e.classList.add("go"));else if(String(g).endsWith("b"))$("m"+parseInt(g)).classList.add("go")});}
+function tray(i){const sy=SY(I[i][1]);$("sl").innerHTML=sy.map((t,j)=>`<span class="tile sy">${W.slot[j]?W.slot[j][0]:"＿"}</span>`).join("");
+$("tr").innerHTML=W.tray.map((x,j)=>`<button class="tile sy" onclick="pickS(${i},${j})">${x[0]}</button>`).join("")}
+function pickS(i,j){const sy=SY(I[i][1]),x=W.tray[j];speak(x[0].toLowerCase());if(x[1]==W.slot.length||sy[W.slot.length]==x[0]){W.slot.push(x);W.tray.splice(j,1);tray(i);
+if(W.slot.length==sy.length){$("fb").textContent="Hebat! Kamu benar! "+nm(i);setTimeout(()=>seq([...sy.map(t=>[t.toLowerCase(),400]),[nm(i).toLowerCase(),0]]),900)}}else $("fb").textContent="Tidak apa-apa, ayo coba lagi!"}
+/* kata + gambar */
+$("g7").innerHTML=I.map((x,i)=>`<button onclick="speak('${nm(i).toLowerCase()}')">${ico(x[0])}<b>${nm(i)}</b></button>`).join("");
+/* games */
+const G=[["Cocokkan gambar dengan kata","m"],["Pilih kata untuk gambar","w"],["Dengar, pilih huruf","l"],["Susun huruf","a"],["Susun suku kata","s"],["Dengar, pilih gambar","p"]];
+$("gm").innerHTML=G.map((g,n)=>`<button onclick="game('${g[1]}')">${n+1}. ${g[0]}</button>`).join("");
+let GM="w",Q={};
+const ok=()=>{const t="Hebat! Kamu benar!";$("fb8").textContent=t;speak(t)},no=()=>{const t="Tidak apa-apa, ayo coba lagi!";$("fb8").textContent=t;speak(t)};
+function game(g){GM=g||GM;const r=sh(I.map((x,i)=>i)),i=r[0],o=r.slice(0,3).sort(()=>Math.random()-.5);let h="";Q={i,m:{}};
+const opts=(f,c)=>`<div class="row">${o.map(j=>`<button class="${c}" onclick="${j==i?"ok()":"no()"}">${f(j)}</button>`).join("")}</div>`;
+if(GM=="w"){h=`<div class="big">${ico(I[i][0],"xl")}</div>`+opts(j=>nm(j),"tile")}
+if(GM=="p"){h=`<button class="big" onclick="speak('${nm(i).toLowerCase()}')">🔊 Dengarkan</button>`+opts(j=>ico(I[j][0]),"");setTimeout(()=>speak(nm(i).toLowerCase()),300)}
+if(GM=="l"){const L=LT(I[i][1])[0],ch=sh([...new Set([L,..."ABDKMPST"].slice(0,4))]);h=`<button class="big" onclick="speak('${L}')">🔊 Huruf apa?</button><div class="row">${ch.map(c=>`<button class="tile" onclick="${c==L?"ok()":"no()"}">${c}</button>`).join("")}</div>`;setTimeout(()=>speak(L),300)}
+if(GM=="a"||GM=="s"){const t=GM=="a"?LT(I[i][1]):SY(I[i][1]);Q.t=t;Q.n=0;Q.tr=sh(t.map((x,j)=>[x,j]));h=`<div class="big">${ico(I[i][0],"xl")}</div><div class="row" id="gs"></div><div class="row" id="gt"></div>`}
+if(GM=="m"){const p=r.slice(0,3);Q.p=p;Q.d=0;Q.sel=null;const ws=sh(p);h=`<div class="row">${p.map(j=>`<button id="gi${j}" onclick="mt(${j},'i')">${ico(I[j][0])}</button>`).join("")}</div><div class="row">${ws.map(j=>`<button class="tile" id="gw${j}" onclick="mt(${j},'w')">${nm(j)}</button>`).join("")}</div>`}
+$("o8").innerHTML=h+`<div class="msg" id="fb8"></div><div class="row"><button onclick="game()">Soal berikutnya</button></div>`;if(GM=="a"||GM=="s")ar()}
+function ar(){$("gs").innerHTML=Q.t.map((x,j)=>`<span class="tile">${j<Q.n?x:"＿"}</span>`).join("");$("gt").innerHTML=Q.tr.map((x,j)=>`<button class="tile" onclick="arp(${j})">${x[0]}</button>`).join("")}
+function arp(j){const x=Q.tr[j];speak(x[0].toLowerCase());if(x[0]==Q.t[Q.n]){Q.n++;Q.tr.splice(j,1);ar();if(Q.n==Q.t.length)setTimeout(ok,700)}else no()}
+function mt(j,s){if(!Q.sel){Q.sel=[j,s];$("g"+s+j).classList.add("on");return}if(Q.sel[1]==s){$("g"+Q.sel[1]+Q.sel[0]).classList.remove("on");Q.sel=[j,s];$("g"+s+j).classList.add("on");return}
+if(Q.sel[0]==j){$("gi"+j).disabled=$("gw"+j).disabled=true;Q.d++;Q.sel=null;if(Q.d==3)ok();else speak(nm(j).toLowerCase())}else{$("g"+Q.sel[1]+Q.sel[0]).classList.remove("on");Q.sel=null;no()}}
+game("w");
+/* nyata */
+let H=0;function hunt(n){H=n==null?Math.floor(Math.random()*20):(n+20)%20;const[k]=I[H],w=nm(H);const t=["Ayo cari "+w.toLowerCase()+" di kelas!","Tunjuk benda yang bernama "+w.toLowerCase()+"!","Mana benda yang bernama "+w.toLowerCase()+"?"][H%3];
+$("o9").innerHTML=`<div class="big">${ico(k,"xl")}</div><div class="word">${w}</div><p><b>${t}</b></p><div class="row"><button onclick="hunt(${H-1})">Kembali</button><button onclick="speak(${JSON.stringify(t)})">Dengarkan lagi</button><button class="big" onclick="speak('Hebat! Kamu menemukan ${w.toLowerCase()}!')">Aku sudah menemukan!</button><button onclick="hunt(${H+1})">Lanjut</button></div>`;}
+hunt(0);hur(0);learn(0);work();show1(0);document.querySelector("#o1").innerHTML="";tok.n++;
+const fixI=n=>{n.querySelectorAll(".word,.tile,#g2 button").forEach(e=>{const w=document.createTreeWalker(e,NodeFilter.SHOW_TEXT),l=[];let t;while(t=w.nextNode())if(t.nodeValue.includes("I")&&!t.parentElement.closest(".i"))l.push(t);l.forEach(t=>{const f=document.createDocumentFragment();t.nodeValue.split(/(I)/).forEach(p=>{if(p=="I"){const s=document.createElement("span");s.className="i";s.textContent="I";f.append(s)}else if(p)f.append(p)});t.replaceWith(f)})})};
+new MutationObserver(()=>fixI(document.body)).observe(document.body,{childList:true,subtree:true});fixI(document.body);
+</script></body></html>
